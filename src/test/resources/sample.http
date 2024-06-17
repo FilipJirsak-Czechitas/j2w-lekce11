@@ -50,3 +50,25 @@ GET {{baseURL}}
 ### Získat seznam knih, včetně stornovaných
 GET {{baseURL}}/?vcetneStornovanych=true
 
+### Získat detail knihy
+GET {{baseURL}}/3
+
+### Upravit knihu
+PUT {{baseURL}}/65
+Content-Type: application/json
+
+{
+  "id": 65,
+  "nazev": "Až delfín promluví",
+  "autor": "Robert Merle",
+  "rokVydani": 2014,
+  "isbn": null,
+  "version": 0,
+  "stornovano": false
+}
+
+### Smazat (stornovat) knihu
+DELETE {{baseURL}}/5
+
+### Obnovit („odstornovat“) knihu
+POST {{baseURL}}/5/obnovit
