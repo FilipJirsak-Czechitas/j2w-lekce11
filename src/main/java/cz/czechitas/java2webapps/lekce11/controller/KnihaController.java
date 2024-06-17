@@ -5,11 +5,7 @@ import cz.czechitas.java2webapps.lekce11.service.KnihaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,30 +15,30 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class KnihaController {
-  private final KnihaService service;
+    private final KnihaService service;
 
-  @Autowired
-  public KnihaController(KnihaService service) {
-    this.service = service;
-  }
+    @Autowired
+    public KnihaController(KnihaService service) {
+        this.service = service;
+    }
 
-  @GetMapping("/")
-  public Page<Kniha> index(Pageable pageable) {
-    return service.seznam(pageable);
-  }
+    @GetMapping("/")
+    public Page<Kniha> index(Pageable pageable) {
+        return service.seznam(pageable);
+    }
 
-  @GetMapping(path = "/", params = "vcetneStornovanych=true")
-  public Page<Kniha> vcetneStornovanych(Pageable pageable) {
-    return service.seznamVcetneStornovanych(pageable);
-  }
+    @GetMapping(path = "/", params = "vcetneStornovanych=true")
+    public Page<Kniha> vcetneStornovanych(Pageable pageable) {
+        return service.seznamVcetneStornovanych(pageable);
+    }
 
-  @PostMapping("/")
-  public Kniha pridat(@RequestBody Kniha kniha) {
-    return service.pridat(kniha);
-  }
+    @PostMapping("/")
+    public Kniha pridat(@RequestBody Kniha kniha) {
+        return service.pridat(kniha);
+    }
 
-  @PostMapping("/batch")
-  public List<Kniha> pridatDavkove(@RequestBody List<Kniha> kniha) {
-    return service.pridatDavkove(kniha);
-  }
+    @PostMapping("/batch")
+    public List<Kniha> pridatDavkove(@RequestBody List<Kniha> kniha) {
+        return service.pridatDavkove(kniha);
+    }
 }

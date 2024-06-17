@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface KnihaRepository extends JpaRepository<Kniha, Long> {
 
-  Page<Kniha> findByStornovanoFalseOrderByNazev(Pageable pageable);
+    Page<Kniha> findByStornovanoFalseOrderByNazev(Pageable pageable);
 
-  Page<Kniha> findAllByOrderByNazev(Pageable pageable);
+    Page<Kniha> findAllByOrderByNazev(Pageable pageable);
 }
