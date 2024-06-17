@@ -1,5 +1,5 @@
 ### Dávkově přidat knihy
-POST {{host}}/batch
+POST {{baseURL}}/batch
 Content-Type: application/json
 
 [
@@ -35,7 +35,7 @@ Content-Type: application/json
 ]
 
 ### Přidat knihu
-POST {{host}}/
+POST {{baseURL}}/
 Content-Type: application/json
 
 {
@@ -45,13 +45,13 @@ Content-Type: application/json
 }
 
 ### Získat seznam knih
-GET {{host}}/
+GET {{baseURL}}
 
 ### Získat detail knihy
-GET {{host}}/4
+GET {{baseURL}}/3
 
 ### Upravit knihu
-PUT {{host}}/65
+PUT {{baseURL}}/65
 Content-Type: application/json
 
 {

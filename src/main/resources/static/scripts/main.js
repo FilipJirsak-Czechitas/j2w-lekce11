@@ -37,6 +37,13 @@ const App = {
             }
             this.nacitam = false
         },
+        async nacistDetail(id) {
+            try {
+                this.detail = await this.fetch(`/api/${id}`)
+            } catch (e) {
+                alert(e)
+            }
+        },
         async ulozit(event) {
             event.preventDefault();
             if (this.detail.isbn === '') {
@@ -68,7 +75,8 @@ const App = {
             }
         },
         upravit(id) {
-            this.detail = {...this.knihy.find(kniha => kniha.id === id)}
+            this.nacistDetail(id)
+            //this.detail = {...this.knihy.find(kniha => kniha.id === id)}
         },
         async smazat(id) {
             try {
