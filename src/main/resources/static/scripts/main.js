@@ -22,6 +22,9 @@ const App = {
             }
 
             const resp = await fetch(url, options)
+            if (!resp.ok) {
+                throw "Komunikace se serverem se nezdařila."
+            }
             return await resp.json()
         },
         async nacistSeznam() {
