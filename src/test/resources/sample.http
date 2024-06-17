@@ -35,7 +35,7 @@ Content-Type: application/json
 ]
 
 ### Přidat knihu
-POST {{baseURL}}/
+POST {{baseURL}}
 Content-Type: application/json
 
 {
@@ -47,20 +47,6 @@ Content-Type: application/json
 ### Získat seznam knih
 GET {{baseURL}}
 
-### Získat detail knihy
-GET {{baseURL}}/3
-
-### Upravit knihu
-PUT {{baseURL}}/65
-Content-Type: application/json
-
-{
-  "id": 65,
-  "nazev": "Až delfín promluví",
-  "autor": "Robert Merle",
-  "rokVydani": 2014,
-  "isbn": null,
-  "version": 0,
-  "stornovano": false
-}
+### Získat seznam knih, včetně stornovaných
+GET {{baseURL}}/?vcetneStornovanych=true
 
